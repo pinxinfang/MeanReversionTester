@@ -1,35 +1,140 @@
+
+
 # 📈 Mean Reversion Backtester
 
-A high-performance quantitative analysis tool built for simulating mean reversion strategies. This application leverages **Streamlit** for the interface and **Vectorized Backtesting** logic to evaluate trade performance over historical equity data.
+A high-performance quantitative research tool for simulating **mean reversion trading strategies** on historical equity data.
 
-## 🚀 Key Features
-* **Dynamic Parameter Tuning:** Live sliders for Buy/Sell thresholds and transaction costs.
-* **Institutional-Grade Metrics:** Automated calculation of:
-    * **Sharpe Ratio:** Risk-adjusted return performance.
-    * **Max Drawdown:** Peak-to-trough risk assessment.
-    * **Profit Factor:** Gross gains vs. gross losses.
-* **Interactive Visualizations:** * **Equity Curve:** Real-time portfolio value tracking.
-    * **Underwater Chart:** Visual representation of drawdown periods.
+Built with **Streamlit** for an interactive UI and powered by **vectorized backtesting logic** for fast, efficient performance evaluation.
 
-## 🛠️ Installation & Setup
-1. Clone the Repository:
-   ```bash
-   git clone [https://github.com/pinxinfang/MeanReversionTester.git](https://github.com/pinxinfang/MeanReversionTester.git)
-   cd MeanReversionTester
+---
 
-2. Install dependencies:
-    pip install streamlit pandas yfinance plotly numpy
+## 🚀 Features
 
-3. Run the app:
-    streamlit run backtester.py
+### 🎛 Dynamic Parameter Tuning
 
-🧠 Strategy Logic
-This tool implements a Mean Reversion strategy:
+Adjust strategy inputs in real time:
 
-The Setup: Monitors the previous day's closing price.
+* Buy Threshold (% below previous close)
+* Take Profit (% target)
+* Stop Loss (% risk control)
+* Transaction Costs
 
-Entry: Triggers a 'Buy' when the price drops a specific percentage below that close (oversold).
+All updates instantly reflect in performance metrics and charts.
 
-Exit: Sells when the price hits a target profit percentage or triggers an emergency Stop Loss.
+---
 
-Disclaimer: For educational purposes only. Not financial advice.
+### 📊 Institutional-Grade Performance Metrics
+
+Automatically calculates:
+
+* **Sharpe Ratio** – Risk-adjusted return measurement
+* **Max Drawdown** – Peak-to-trough capital decline
+* **Profit Factor** – Gross profits ÷ Gross losses
+* Total Return
+* Win Rate
+* Trade Count
+
+---
+
+### 📈 Interactive Visualizations
+
+* **Equity Curve** – Portfolio growth over time
+* **Underwater Chart** – Visual drawdown analysis
+* Trade signal overlays on price charts
+
+All charts are powered by Plotly for smooth interactivity.
+
+---
+
+## 🧠 Strategy Logic
+
+This application implements a simple **daily mean reversion strategy**:
+
+### 📌 Setup
+
+* Monitors the previous day’s closing price.
+
+### 🟢 Entry Rule
+
+* Buy when the current price drops a defined percentage below the previous close
+  *(oversold condition)*
+
+### 🔴 Exit Rules
+
+* Take Profit: Price rises by a defined percentage
+* Stop Loss: Price drops to risk threshold
+* Optional transaction cost adjustment
+
+---
+
+## 🛠 Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/pinxinfang/MeanReversionTester.git
+cd MeanReversionTester
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+pip install streamlit pandas yfinance plotly numpy
+```
+
+Or use a virtual environment (recommended):
+
+```bash
+python -m venv venv
+source venv/bin/activate   # macOS/Linux
+venv\Scripts\activate      # Windows
+pip install -r requirements.txt
+```
+
+### 3️⃣ Run the App
+
+```bash
+streamlit run backtester.py
+```
+
+The application will open automatically in your browser.
+
+---
+
+## ⚡ Technical Highlights
+
+* Fully vectorized performance calculations (no slow loops)
+* Efficient pandas-based signal generation
+* Real-time portfolio equity tracking
+* Clean modular architecture for easy strategy expansion
+
+---
+
+## 📂 Project Structure
+
+```
+MeanReversionTester/
+│
+├── backtester.py        # Main Streamlit application
+├── requirements.txt     # Dependencies
+└── README.md
+```
+
+---
+
+## 🔮 Future Improvements
+
+* Multi-asset portfolio testing
+* Walk-forward optimization
+* Position sizing models
+* Monte Carlo simulation
+* Strategy comparison dashboard
+
+---
+
+## ⚠️ Disclaimer
+
+This project is for **educational and research purposes only**.
+It does **not** constitute financial advice, investment recommendation, or trading guidance.
+
+Trading involves risk. Past performance does not guarantee future results.
